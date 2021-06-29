@@ -1,0 +1,12 @@
+:root {
+  --box-color: #ddad5d;
+  --logo-color: #58ade2;
+  --knight-color: #304184;
+  --peasant-color: #7c4b2a;
+  --monk-color: #c15020;
+  --gold-color: #f5d214;
+}
+body {
+  background-color: var(--box-color);
+  color: var(--knight-color);
+}
