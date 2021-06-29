@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Orleans Calculator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./style.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <div class="calculator-container">
+      <div id="title">Orleans Score Calculator</div>
+      <div class="calculator">
+        <form id="scores">
+          <fieldset>
+            <legend>Money</legend>
+            <label for="coins">Coins</label>
+            <input type="number" id="coins" name="coins" min="0"></input><br/>
+          </fieldset>
+          <fieldset>
+            <legend>Goods</legend>
+            <label for="grain">Grain</label>
+            <input type="number" id="grain" name="grain" min="0"></input><br/>
+            <label for="cheese">Cheese</label>
+            <input type="number" id="cheese" name="cheese" min="0"></input><br/>
+            <label for="wine">Wine</label>
+            <input type="number" id="wine" name="wine" min="0"></input><br/>
+            <label for="wool">Wool</label>
+            <input type="number" id="wool" name="wool" min="0"></input><br/>
+            <label for="brocade">Brocade</label>
+            <input type="number" id="brocade" name="brocade" min="0"></input><br/>
+          </fieldset>
+          <fieldset>
+            <legend>Development</legend>
+            <label for="trading">Trading Stations</label>
+            <input type="number" id="trading" name="trading" min="0"></input><br/>
+            <label for="citizens">Citizen Tiles</label>
+            <input type="number" id="citizens" name="citizens" min="0"></input><br/>
+            <label for="development">Development Track</label>
+            <input type="number" id="development" name="development" min="1" value="1"></input><br/>
+          </fieldset>
+          <div id="results"></div>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>
