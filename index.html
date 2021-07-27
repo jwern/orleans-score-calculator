@@ -9,38 +9,41 @@
   </head>
   <body>
     <div class="calculator-container">
-      <div id="title">Orleans Score Calculator</div>
+      <div id="title">
+        <h1>Orléans Score Calculator</h1>
+        <img src="images/orleans_score_cheat_sheet.jpg" id="score-sheet">
+      </div>
       <div class="calculator">
         <form id="scores">
           <fieldset>
             <legend>Money</legend>
-            <label for="coins">Coins</label>
+            <label for="coins"><img src="images/orleans_coin_one.jpg" class="input-image"> Coins</label>
             <input type="number" id="coins" name="coins" min="0"></input><br/>
           </fieldset>
           <fieldset>
             <legend>Goods</legend>
-            <label for="grain">Grain</label>
+            <label for="grain"><img src="images/orleans_grain.jpg" class="input-image"> Grain</label>
             <input type="number" id="grain" name="grain" min="0"></input><br/>
-            <label for="cheese">Cheese</label>
+            <label for="cheese"><img src="images/orleans_cheese.jpg" class="input-image"> Cheese</label>
             <input type="number" id="cheese" name="cheese" min="0"></input><br/>
-            <label for="wine">Wine</label>
+            <label for="wine"><img src="images/orleans_wine.jpg" class="input-image"> Wine</label>
             <input type="number" id="wine" name="wine" min="0"></input><br/>
-            <label for="wool">Wool</label>
+            <label for="wool"><img src="images/orleans_wool.jpg" class="input-image"> Wool</label>
             <input type="number" id="wool" name="wool" min="0"></input><br/>
-            <label for="brocade">Brocade</label>
+            <label for="brocade"><img src="images/orleans_brocade.jpg" class="input-image"> Brocade</label>
             <input type="number" id="brocade" name="brocade" min="0"></input><br/>
           </fieldset>
           <fieldset>
             <legend>Development</legend>
-            <label for="trading">Trading Stations</label>
+            <label for="trading"><img src="images/orleans_trading_stations.jpg" class="input-image"> Trading Stations</label>
             <input type="number" id="trading" name="trading" min="0"></input><br/>
-            <label for="citizens">Citizen Tiles</label>
+            <label for="citizens"><img src="images/orleans_citizen.jpg" class="input-image"> Citizen Tiles</label>
             <input type="number" id="citizens" name="citizens" min="0"></input><br/>
-            <label for="development">Development Track</label>
+            <label for="development"><img src="images/orleans_development.jpg" class="input-image"> Development Track</label>
             <input type="number" id="development" name="development" min="1" value="1"></input><br/>
           </fieldset>
           <div class="total">
-            Total Score: <div id="results"></div>
+            <h2>Total Score: <span id="results"></span></h2> 
           </div>
         </form>
       </div>
