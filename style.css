@@ -6,7 +6,19 @@
   --monk-color: #c15020;
   --gold-color: #f5d214;
 }
+
 body {
   background-color: var(--box-color);
   color: var(--knight-color);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  width: 4ch;
 }
