@@ -40,8 +40,6 @@ const adjustScores = (function () {
   function updateTotalScore(item) {
     let multipliedValue = item.value * scoreMultiplier()[item.name];
     sessionScores.totalScore[item.name] = Number(multipliedValue);
-
-    console.log(sessionScores.totalScore);
   }
 
   function getTotalScore() {
@@ -54,7 +52,9 @@ const adjustScores = (function () {
   return { getTotalScore, updateTotalScore };
 })();
 
-const recalculateDevPoints = function () {
+// The development track is used as a multiplier for citizens & trading scores
+// So if development is updated, we need to recalculate those totals
+const recalculateDevelopmentPoints = function () {
   const calculatorForm = document.getElementById("scores");
 
   let citizens = calculatorForm.querySelector("#citizens");
@@ -64,16 +64,48 @@ const recalculateDevPoints = function () {
   adjustScores.updateTotalScore(trading);
 };
 
-const adjustTotal = function () {
-  if (this.name === "development") {
-    sessionScores.updateDevelopmentTrack(this.value);
-    recalculateDevPoints();
+const adjustTotal = function (score) {
+  if (score.name === "development") {
+    sessionScores.updateDevelopmentTrack(score.value);
+    recalculateDevelopmentPoints();
   } else {
-    adjustScores.updateTotalScore(this);
+    adjustScores.updateTotalScore(score);
   }
 
   let results = document.getElementById("results");
   results.textContent = adjustScores.getTotalScore();
+};
+
+const changeScoreWithButton = function (direction, score, button) {
+  button.preventDefault();
+
+  if (direction === "increment") {
+    score.value++;
+  } else if (score.value > 0) {
+    score.value--;
+  }
+
+  adjustTotal(score);
+};
+
+const addArrowButtons = function (inputs) {
+  inputs.forEach((input) => {
+    let upArrow = document.createElement("button");
+    upArrow.id = `${input.id}UpArrow`;
+    upArrow.innerHTML = "&#9650;";
+    input.insertAdjacentElement("afterend", upArrow);
+    upArrow.addEventListener("click", (event) =>
+      changeScoreWithButton("increment", input, event)
+    );
+
+    let downArrow = document.createElement("button");
+    downArrow.id = `${input.id}DownArrow`;
+    downArrow.innerHTML = "&#9660;";
+    upArrow.insertAdjacentElement("afterend", downArrow);
+    downArrow.addEventListener("click", (event) =>
+      changeScoreWithButton("decrement", input, event)
+    );
+  });
 };
 
 const createSession = function () {
@@ -81,8 +113,11 @@ const createSession = function () {
   calculatorForm.reset();
 
   const scores = calculatorForm.querySelectorAll("input");
+  addArrowButtons(scores);
 
-  scores.forEach((score) => score.addEventListener("change", adjustTotal));
+  scores.forEach((score) =>
+    score.addEventListener("change", (event) => adjustTotal(event.target))
+  );
 };
 
 window.addEventListener("load", createSession);
