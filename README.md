@@ -9,3 +9,8 @@ Many items in Orléans are multiplied by some set value to determine their total
 ## WIP
 
 This calculator is a work-in-progress: the basic functionality is in place, but it is still being updated to improve the UI and appearance.
+
+Functionality still to be added:
+
+- Allow player to input coins based on total value **or** total number of each type of coin
+- Add Trade & Intrigue Expansion scoring options (Orders, building tiles)
