@@ -76,9 +76,7 @@ const adjustTotal = function (score) {
   results.textContent = adjustScores.getTotalScore();
 };
 
-const changeScoreWithButton = function (direction, score, button) {
-  button.preventDefault();
-
+const changeScoreWithButton = function (direction, score) {
   if (direction === "increment") {
     score.value++;
   } else if (score.value > 0) {
@@ -94,17 +92,19 @@ const addArrowButtons = function (inputs) {
     upArrow.id = `${input.id}UpArrow`;
     upArrow.innerHTML = "&#9650;";
     input.insertAdjacentElement("afterend", upArrow);
-    upArrow.addEventListener("click", (event) =>
-      changeScoreWithButton("increment", input, event)
-    );
+    upArrow.addEventListener("click", (event) => {
+      event.preventDefault();
+      changeScoreWithButton("increment", input);
+    });
 
     let downArrow = document.createElement("button");
     downArrow.id = `${input.id}DownArrow`;
     downArrow.innerHTML = "&#9660;";
     upArrow.insertAdjacentElement("afterend", downArrow);
-    downArrow.addEventListener("click", (event) =>
-      changeScoreWithButton("decrement", input, event)
-    );
+    downArrow.addEventListener("click", (event) => {
+      event.preventDefault();
+      changeScoreWithButton("decrement", input);
+    });
   });
 };
 
