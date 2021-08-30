@@ -64,7 +64,18 @@ const recalculateDevelopmentPoints = function () {
   adjustScores.updateTotalScore(trading);
 };
 
+const validateScore = function (score) {
+  if (score.value < 0) {
+    alert("Number cannot be negative.");
+    return 0;
+  } else {
+    return score.value;
+  }
+};
+
 const adjustTotal = function (score) {
+  score.value = validateScore(score);
+
   if (score.name === "development") {
     sessionScores.updateDevelopmentTrack(score.value);
     recalculateDevelopmentPoints();
